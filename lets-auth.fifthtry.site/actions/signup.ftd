@@ -29,3 +29,29 @@ ftd.submit_form(
     accept_terms,
     next
 )
+
+;; Note: unused in this package.
+;; This is provided to support create account flows where the user is pre verified and they just want to give basic info and set password.
+;; The `code` should be used for verifying genuine requests
+-- void create-account-with-code(name, email, username, password, password2, accept_terms, next, code):
+ftd.string-field $name:
+ftd.string-field $email:
+ftd.string-field $username:
+ftd.string-field $password:
+ftd.string-field $password2:
+ftd.boolean-field $accept_terms:
+ftd.string-field $next:
+string code:
+js: $assets.files.actions.dummy.alert.js
+
+show_alert(
+    "/-/auth/create-account/",
+    name,
+    email,
+    username,
+    password,
+    password2,
+    accept_terms,
+    next,
+    code
+)
