@@ -42,10 +42,11 @@ ftd.string-field $password2:
 ftd.boolean-field $accept_terms:
 ftd.string-field $next:
 string code:
+string action_url: $ftd.app-url(path=/email_auth_provider/create-account/)
 js: $assets.files.actions.dummy.alert.js
 
 show_alert(
-    "/-/auth/create-account/",
+    action_url,
     name,
     email,
     username,
